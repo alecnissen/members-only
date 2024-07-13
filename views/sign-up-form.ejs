@@ -9,22 +9,22 @@
 <body>
     
     <h1>Sign Up</h1>
-    <form action="" method="POST">
+    <form method="post" action="/create_user">
       <label for="firstname">First Name</label>
-      <input name="firstname" placeholder="First Name" type="text" />
+      <input name="firstName" placeholder="First Name" type="text" value="<% user.firstName %>" />
       <label for="lastname">Last Name</label>
-      <input name="lastname" type="text" />
+      <input name="lastName" type="text" value="<% user.lastName %>" />
       <label for="email">E-Mail</label>
-      <input name="email" type="email" />
+      <input name="email" type="email" value="<% user.email %>" />
       <label for="password">Password</label>
-      <input name="password" type="password" />
+      <input name="password" type="password" value="<% user.password %>" />
       <label for="confirm-password">Confirm Password</label>
-      <input name="confirm-password" type="password" />
-      <label for="membership-status">Membership Status</label>
-      <select name="membership-status">
-        <option>Member</option>
-        <option>Not a member</option>
-      </select>
+      <input name="confirm-password" type="password" value="<% user.password %>" />
+      <!-- <label for="membershipStatus">Membership Status</label>
+      <select>
+        <option value="Member" name="membershipStatus">Member</option>
+        <option value="Not a member" name="membershipStatus">Not a member</option>
+      </select> -->
 
       <button type="submit">Sign Up</button>
     </form>
