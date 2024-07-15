@@ -9,6 +9,15 @@
 <body>
     
     <h1>Sign Up</h1>
+
+    <% if (errors && errors.length > 0) { %>
+      <ul>
+        <% errors.forEach(function(error) { %>
+          <li><%= error.msg %></li>
+        <% }); %>
+      </ul>
+    <% } %>
+
     <form method="post" action="/create_user">
       <label for="firstname">First Name</label>
       <input name="firstName" placeholder="First Name" type="text" value="<% user.firstName %>" required />

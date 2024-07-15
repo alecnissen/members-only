@@ -7,3 +7,8 @@
 // form validation, front end, 
 
 // do I need to pass this error object to the frontend. 
+
+
+// 7.15 
+
+/// adding validation on the front and backend 
