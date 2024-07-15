@@ -11,16 +11,17 @@
     <h1>Sign Up</h1>
     <form method="post" action="/create_user">
       <label for="firstname">First Name</label>
-      <input name="firstName" placeholder="First Name" type="text" value="<% user.firstName %>" />
+      <input name="firstName" placeholder="First Name" type="text" value="<% user.firstName %>" required />
       <label for="lastname">Last Name</label>
-      <input name="lastName" type="text" value="<% user.lastName %>" />
+      <input name="lastName" type="text" value="<% user.lastName %>" required/>
       <label for="email">E-Mail</label>
-      <input name="email" type="email" value="<% user.email %>" />
+      <input name="email" type="email" value="<% user.email %>" required />
       <label for="password">Password</label>
-      <input name="password" type="password" value="<% user.password %>" />
-      <label for="confirm-password">Confirm Password</label>
-      <input name="confirm-password" type="password" value="<% user.password %>" />
+      <input name="password" type="password" value="<% user.password %>" required/>
       
+      <label for="confirm-password">Confirm Password</label>
+      <input name="confirm-password" type="password" value="<% user.password %>" required/>
+
       <!-- <label for="membershipStatus">Membership Status</label>
       <select>
         <option value="Member" name="membershipStatus">Member</option>

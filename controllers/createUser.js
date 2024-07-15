@@ -19,6 +19,7 @@ exports.create_user_get = (req, res, next) => {
 // name and membership status not going through
 
 exports.create_user_post = [
+    
   body("firstName", "firstName must contain at least 3 characters")
     .trim()
     .isLength({ min: 3 })
@@ -36,10 +37,15 @@ exports.create_user_post = [
     .trim()
     .isLength({ min: 3 })
     .escape(),
-    
-//   body("passwordConfirmation", "passwords must match").custom(
+
+    // check("email").isEmail().withMessage('Invalid email address'),
+
+//   body("confirmPassword", "passwords must match").custom(
 //     (value, { req }) => {
-//       return value === req.body.password;
+//         if (value !== req.body.password) { 
+//             throw new Error("Passwords must match")
+//         }
+//         return;
 //     }
 //   ),
 
@@ -50,51 +56,39 @@ exports.create_user_post = [
   asyncHandler(async (req, res, done, next) => {
     const errors = validationResult(req);
 
-    // const hashedPassword = await bcrypt.hash(req.body.password, 10);
     // console.log(hashedPassword);
-
-
     
-    const user = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        password: req.body.password,
-        // password: hashedPassword,
-        // membershipStatus: req.body.membershipStatus
-    });
-    
-    
-    console.log(user);
-    
-    // const match = await bcrypt.compare(user.password, req.body.password);
-    // if (!match) {
-    //   // passwords do not match!
-    //   return done(null, false, { message: "Incorrect password" });
-    // }
+    try { 
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const user = new User({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            // password: req.body.password,
+            password: hashedPassword,
+            // membershipStatus: req.body.membershipStatus
+        });
+
+        await user.save();
+        console.log("User created:", user);
+        res.redirect("/");
+
+        if (!errors.isEmpty()) {
+            res.render("sign-up-form", {
+              title: "Create User",
+              user: user,
+              errors: errors.array(),
+            });
+            return;
+          } 
 
 
-    // try { 
-    //     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    // } catch { 
-
-    // }
-
-
-
-    if (!errors.isEmpty()) {
-      res.render("sign-up-form", {
-        title: "Create User",
-        user: user,
-        errors: errors.array(),
-      });
-    } else {
-      await user.save();
-      console.log("user created", user);
-      res.redirect("/");
+    } catch (err) { 
+        console.log(err);
+       
     }
-
-
+    
+    
 
   }),
 ];
