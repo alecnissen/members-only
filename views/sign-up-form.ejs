@@ -7,40 +7,86 @@
     <title>Sign Up Form</title>
 </head>
 <body>
+  <h1>Sign Up</h1>
+
+  <% if (errors && errors.length > 0) { %>
+    <ul>
+      <% errors.forEach(function(error) { %>
+        <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <span id="password-error" style="color: red;"></span>
+
+  <form id="sign-up-form" method="post" action="/create_user">
+    <label for="firstname">First Name</label>
+    <input name="firstName" placeholder="First Name" type="text" value="<% user.firstName %>" required />
+    <label for="lastname">Last Name</label>
+    <input name="lastName" type="text" value="<% user.lastName %>" required/>
+    <label for="email">E-Mail</label>
+    <input name="email" type="email" value="<% user.email %>" required />
+
+    <!-- <span style="color: red;">
+      <% if (errors && errors.length > 0) { %>
+        <ul>
+          <% errors.forEach(function(error) { %>
+            <li><%= error.msg %></li>
+          <% }); %>
+        </ul>
+      <% } %>
     
-    <h1>Sign Up</h1>
+    </span> -->
 
-    <% if (errors && errors.length > 0) { %>
-      <ul>
-        <% errors.forEach(function(error) { %>
-          <li><%= error.msg %></li>
-        <% }); %>
-      </ul>
-    <% } %>
+    <label for="password">Password</label>
+    <input name="password" type="password" id="user-password-input" value="<% user.password %>" required/>
+    
+    <!-- <span id="password-error" style="color: red;"></span> -->
 
-    <form method="post" action="/create_user">
-      <label for="firstname">First Name</label>
-      <input name="firstName" placeholder="First Name" type="text" value="<% user.firstName %>" required />
-      <label for="lastname">Last Name</label>
-      <input name="lastName" type="text" value="<% user.lastName %>" required/>
-      <label for="email">E-Mail</label>
-      <input name="email" type="email" value="<% user.email %>" required />
-      <label for="password">Password</label>
-      <input name="password" type="password" value="<% user.password %>" required/>
+    <label for="confirm-password">Confirm Password</label>
+    <input name="confirm-password" type="password" id="confirm-user-password-input" value="<% user.password %>" required/>
+
+    <button type="submit" id="form-submit">Sign Up</button>
+  </form>
+
+  <script>
+    document.getElementById('sign-up-form').addEventListener('submit', function(e) {
+      let isValid = true;
       
-      <label for="confirm-password">Confirm Password</label>
-      <input name="confirm-password" type="password" value="<% user.password %>" required/>
+      let userPasswordInput = document.getElementById('user-password-input');
+      let confirmUserPasswordInput = document.getElementById('confirm-user-password-input');
+      let passwordError = document.getElementById('password-error');
+      
+      passwordError.textContent = ''; // Clear any previous errors
 
-      <!-- <label for="membershipStatus">Membership Status</label>
-      <select>
-        <option value="Member" name="membershipStatus">Member</option>
-        <option value="Not a member" name="membershipStatus">Not a member</option>
-      </select> -->
+      userPasswordInput.addEventListener('input', (e) => { 
+        console.log('password input field data', userPasswordInput.value);
+      });
 
-      <button type="submit">Sign Up</button>
-    </form>
+      confirmUserPasswordInput.addEventListener('input', (e) => { 
+        console.log('confirm password input field data', confirmUserPasswordInput.value);
+      });
+
+      if (userPasswordInput.value !== confirmUserPasswordInput.value) { 
+        console.log('passwords do not match');
+        passwordError.textContent = 'Passwords do not match';
+        isValid = false;
+      }
+
+      if (userPasswordInput.value.length < 3) { 
+        passwordError.textContent = 'Password must be greater than 3 characters';
+        isValid = false;
+      }
+
+      if (!isValid) { 
+        e.preventDefault();
+      }
+    });
+  </script>
 
 
+<a href="/">Back to home</a>
 
 </body>
+
 </html>

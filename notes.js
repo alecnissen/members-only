@@ -12,3 +12,12 @@
 // 7.15 
 
 /// adding validation on the front and backend 
+
+
+// can I ensure that the errors appear in the same place? 
+
+// can I just move my logic into the controller and pass it down that way? 
+
+// 7/16 
+
+// figure out membership status 
