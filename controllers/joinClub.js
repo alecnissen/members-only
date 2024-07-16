@@ -25,6 +25,7 @@ exports.join_club_post = (req, res, next) => {
 
     console.log('user input entered', userInput);
 
+
     // console.log(User.firstName);
 
     // how do I access the user that just got created ? 
@@ -33,12 +34,6 @@ exports.join_club_post = (req, res, next) => {
 
 
     try { 
-
-
-
-
-
-
 
         // if the user input (input field in view) 
         // matches the desired password var 
