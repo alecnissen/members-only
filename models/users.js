@@ -6,8 +6,8 @@ const UserSchema = new Schema({
     lastName: { type: String, required: true, maxLength: 50 },
     email: { type: String, required: true, maxLength: 50 },
     password: { type: String, required: true, maxLength: 150 },
-    // membershipStatus: { type: String, required: true, enum: ['Member', 'Not a member'], maxLength: 50 },
-  
+    membershipStatus: { type: String, required: true, enum: ['Member', 'Non-member'], maxLength: 50 },
+
   });
   
   

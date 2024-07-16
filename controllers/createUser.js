@@ -66,7 +66,10 @@ exports.create_user_post = [
         lastName: req.body.lastName,
         email: req.body.email,
         password: hashedPassword,
+        membershipStatus: req.body.membershipStatus
       });
+
+      console.log(user);
 
       await user.save();
       console.log("User created:", user);
