@@ -21,3 +21,14 @@
 // 7/16 
 
 // figure out membership status 
+
+
+// PROBLEM 
+
+// trying to have the user login, however I am at the point where I am comparing passwords, 
+
+// the password that the user entered and the password stored in the database for that user 
+
+// how can I get access to that input field where the user enters a password 
+
+// SO I can properly compare passwords. 

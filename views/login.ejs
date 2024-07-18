@@ -8,12 +8,20 @@
 </head>
 <body>
     <h1>Log into your account</h1>
+    
 
-    <label>Username</label>
-    <input type="text">
+    <form method="post" action="user_login" id="user-login-form">
+
+    <label>Email</label>
+    <input type="text" name="email">
 
     <label>Password</label>
-    <input type="text">
+    <input type="text" name="password">
+
+    <button type="submit">Submit</button>
+    </form>
+
+    <a href="/">Back to home</a>
 
 </body>
 </html>

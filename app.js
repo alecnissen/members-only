@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bcrypt = require('bcryptjs');
 
+
 var indexRouter = require('./routes/index');
 const createUserRouter = require('./routes/create_user');
 const joinClubRouter = require('./routes/join_club');
