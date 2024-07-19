@@ -7,7 +7,10 @@
   <body>
 
 
-
+    <% if (user) {%>
+      <h1>WELCOME BACK <%= user.firstName %></h1>
+      <a>Log out</a>
+    <% } %>
 
     <h1>Members Only</h1>
     <p>Welcome to Members Only</p>

@@ -5,7 +5,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bcrypt = require('bcryptjs');
-
+const session = require('express-session');
+const passport = require('passport');
+const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 const createUserRouter = require('./routes/create_user');
@@ -13,6 +15,22 @@ const joinClubRouter = require('./routes/join_club');
 const loginRouter = require('./routes/user_login');
 
 var app = express();
+
+// Express session middleware
+app.use(session({
+  secret: process.env.SECRET_KEY_SESSION,
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride('_method'));
+
+// Body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // mongoose connection
 
