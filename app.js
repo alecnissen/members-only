@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 const createUserRouter = require('./routes/create_user');
 const joinClubRouter = require('./routes/join_club');
 const loginRouter = require('./routes/user_login');
+const logOutRouter = require('./routes/log_out');
 
 var app = express();
 
@@ -58,6 +59,7 @@ app.use('/', indexRouter);
 app.use('/create_user', createUserRouter);
 app.use('/join_club', joinClubRouter);
 app.use('/user_login', loginRouter);
+app.use('/log_out', logOutRouter);
 
 
 // catch 404 and forward to error handler

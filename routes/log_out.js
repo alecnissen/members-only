@@ -3,5 +3,13 @@ const router = express.Router();
 
 const logOutController = require('../controllers/log_out');
 
-router.delete('/', logOutController.log_in_get);
+router.delete('/', (req, res) => { 
+   req.logOut((err) => {
+    if (err) { 
+        return next(err);
+    } 
+    res.redirect('/');
+   })
+});
 
+module.exports = router;
