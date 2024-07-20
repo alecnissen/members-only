@@ -32,3 +32,14 @@
 // how can I get access to that input field where the user enters a password 
 
 // SO I can properly compare passwords. 
+
+
+
+
+// 7/20 
+
+// how can I access the currently logged in user, within the join club controller and 
+
+// properly update their status 
+
+// how can I get access to the current user 

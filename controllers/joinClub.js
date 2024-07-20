@@ -12,7 +12,7 @@ exports.join_club_get = (req, res, next) => {
     res.render('joinClub', { title: 'Become a member'});
 } 
 
-exports.join_club_post = (req, res, next) => { 
+exports.join_club_post = async (req, res, next) => { 
 
     body('memberPassword', "password must contain at least 3 characters")
     .trim()
@@ -44,6 +44,11 @@ exports.join_club_post = (req, res, next) => {
 
         if (userInput === desiredPassword) { 
             console.log('CORRECT, YOU ARE GRANTED MEMBERSHIP!')
+            // const user = await User.find();
+            // console.log(user);
+            console.log(req.user);
+            req.user.membershipStatus = 'Member';
+            console.log('changed member status', req.user);
         } else { 
             console.log('WRONG ANSWER')
         }
