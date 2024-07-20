@@ -43,3 +43,18 @@
 // properly update their status 
 
 // how can I get access to the current user 
+
+
+
+// **** 
+
+
+// now I need a way to use conditionals within index 
+
+// that if the users membership status is member only show the author and date 
+//      and not the title or text?
+
+
+// *** before I do that, I need to add the author and date to the model 
+
+// then use those conditionals 

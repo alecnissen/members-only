@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const UserMessage = new Schema({
     title: { type: String, required: true, maxLength: 50 },
     text: { type: String, required: true, maxLength: 150 },
+    author: { type: String, required: true, maxLength: 50 },
+    date: { type: Date, required: true, maxLength: 50 }
 })
 
 UserMessage.virtual("url").get(function () {
