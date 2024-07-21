@@ -15,6 +15,7 @@ const joinClubRouter = require('./routes/join_club');
 const loginRouter = require('./routes/user_login');
 const logOutRouter = require('./routes/log_out');
 const newMessageRouter = require('./routes/new_message');
+const deletePostRouter = require('./routes/delete_post');
 
 var app = express();
 
@@ -62,6 +63,7 @@ app.use('/join_club', joinClubRouter);
 app.use('/user_login', loginRouter);
 app.use('/log_out', logOutRouter);
 app.use('/new_message', newMessageRouter);
+app.use('/delete_post', deletePostRouter);
 
 
 // catch 404 and forward to error handler
