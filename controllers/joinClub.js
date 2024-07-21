@@ -48,12 +48,14 @@ exports.join_club_post = async (req, res, next) => {
             // console.log(user);
             console.log(req.user);
             req.user.membershipStatus = 'Member';
+            // added line below
+            await req.user.save();
             console.log('changed member status', req.user);
         } else { 
             console.log('WRONG ANSWER')
         }
 
-        
+        res.redirect('/');
 
 
 
