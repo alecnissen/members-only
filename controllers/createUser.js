@@ -66,7 +66,8 @@ exports.create_user_post = [
         lastName: req.body.lastName,
         email: req.body.email,
         password: hashedPassword,
-        membershipStatus: req.body.membershipStatus
+        membershipStatus: req.body.membershipStatus,
+        admin: req.body.admin === 'true'
       });
 
       console.log(user);
