@@ -18,15 +18,21 @@
     <h1>Members Only</h1>
     <p>Welcome to Members Only</p>
   
+    <button>
     <a href="/create_user">Sign up</a>
+    </button>
+
+    <button>
     <a href="/user_login">Login</a>
-    
+    </button>
     
     <% if (user) { %>
       <button>
         <a href="/new_message">Make a post</a>
       </button>
+      <button>
       <a href="/join_club">Become a member</a>
+    </button>
     <% } %>
   
     <h3>Messages:</h3>
@@ -39,6 +45,8 @@
         
 
         <% if (user && user.admin === true) { %> 
+          <h3><%= message.title %></h3>
+          <p><%= message.text %></p>
           <form action="/delete_post/<%= message._id %>?_method=DELETE" method="post"> 
             <button type="submit">Delete</button>
           </form>
@@ -52,6 +60,8 @@
 
 
         <% if (user && user.admin === true) { %> 
+          <h3><%= message.author %></h3>
+          <p><%= message.date %></p>
           <form action="/delete_post/<%= message._id %>?_method=DELETE" method="post"> 
             <button type="submit">Delete</button>
           </form>
