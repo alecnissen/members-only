@@ -54,14 +54,21 @@ exports.log_in_get = (req, res, next) => {
 };
 
 exports.log_in_post = (req, res, next) => {
+
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       return next(err);
     }
+    // if (!user) {
+    //   console.log('Login failed');
+    //   return res.redirect('/user_login');
+    // }
+
     if (!user) {
       console.log('Login failed');
-      return res.redirect('/user_login');
+      return res.render('login', { title: 'Login', errorMessage: info.message || 'Invalid credentials' });
     }
+
     req.logIn(user, (err) => {
       if (err) {
         return next(err);

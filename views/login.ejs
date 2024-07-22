@@ -9,14 +9,17 @@
 <body>
     <h1>Log into your account</h1>
     
+    <% if (locals.errorMessage) { %>
+        <p style="color: red;"><%= errorMessage %></p>
+      <% } %>
 
     <form method="post" action="user_login" id="user-login-form">
 
     <label>Email</label>
-    <input type="text" name="email">
+    <input type="text" name="email" required>
 
     <label>Password</label>
-    <input type="password" name="password">
+    <input type="password" name="password" required>
 
     <button type="submit">Submit</button>
     </form>
