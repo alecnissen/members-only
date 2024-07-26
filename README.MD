@@ -35,31 +35,31 @@ then ``` npm install ``` which will install all dependency's and packages.
 
 - All messages are displayed on the home page for the user to see.
 
-<img src='public/images/members-only.png' style="width:300px">
+<img src='public/images/members-only.png' style="width:400px">
 
 - Users can login and forms also include validation checks to make sure credentials are valid. It will display incorrect password or email.
 
-<img src="public/images/mo-login.png" style="width:300px">
+<img src="public/images/mo-login.png" style="width:400px">
 
 - Welcome page if user authentication is successful using conditional rendering within EJS view.
 
-<img src="public/images/mo-welcome.png" style="width:300px">
+<img src="public/images/mo-welcome.png" style="width:400px">
 
 - Users can become a member by answering a question. If successful they will be able to see the author and date of the messages. 
 
-<img src="public/images/mo-join.png" style="width:300px">
+<img src="public/images/mo-join.png" style="width:400px">
 
 - Users Can make posts.
 
-<img src="public/images/mo-posts.png" style="width:300px">
+<img src="public/images/mo-posts.png" style="width:400px">
 
 - When users sign up they can choose to become an admin.
 
-<img src="public/images/mo-admin-sign-up.png" style="width:300px">
+<img src="public/images/mo-admin-sign-up.png" style="width:400px">
 
 - If the user is an admin they will have the ability to see all the contents of the messages including title, text, author, date as well as the ability to delete messages.
 
-<img src="public/images/mo-delete.png" style="width:300px">
+<img src="public/images/mo-delete.png" style="width:400px">
 
 <h1>Acknowledgments</h1> Thank you to everyone within The Odin Project Curriculum from the bottom of my heart! Thank you to anyone who helped me in the discord channels. I promise to help others throughout this journey. 
 
